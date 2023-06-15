@@ -15,20 +15,20 @@ Verifique que en la consola sigan apereciendo los mensajes de log
 
 const boton = document.querySelector("button");
 
-boton.addEventListener("click", () => {
+boton.onclick = () => {
     console.log("Respuesta evento click");
     boton.className = "btnClick";
-})
+}
 
-boton.addEventListener("mouseover", () => {
+boton.onmouseover = () => {
     console.log("Respuesta evento mouseover");
     boton.className = "btnOver";
-})
+}
 
-boton.addEventListener("mouseout", () => {
+boton.onmouseout = () => {
     console.log("Respuesta evento mouseout");
     boton.className = "btnOut";
-})
+}
 
 
 /* 2 - Enunciado
@@ -40,6 +40,24 @@ actual seleccionado en la caja de seleccion.
 
 */
 
+const selector = document.querySelector("select");
+selector.onchange = () => {
+    switch (selector.value) {
+        case "efectivo":
+            console.log("Has seleccionado efectivo.");
+            break;
+        case "transferencia":
+            console.log("Has seleccionado transferencia.");
+            break;
+        case "tarjeta":
+            console.log("Has seleccionado tarjeta.");
+            break;
+        default:
+            console.log("Error al seleccionar forma de pago.");
+            break;
+    }
+}
+
 /* 3 - Enunciado
 
 Cree un evento que capture cuando haya finalizado de ingresas
@@ -49,3 +67,6 @@ PISTA: Debe utilizar el mismo tipo de evento que en el ejercicio
 anterior.
 
 */
+
+const inputText = document.querySelector("input");
+inputText.onchange = () => alert(`Tu nombre es ${inputText.value}`);
